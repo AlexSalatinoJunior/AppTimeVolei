@@ -1,0 +1,20 @@
+.header{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 3em;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: aliceblue;
+}
+
+.header a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.active {
+    background-color: darkblue;
+    color:aliceblue;
+}
