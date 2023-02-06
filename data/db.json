@@ -1,6 +1,13 @@
 {
   "perfis": [],
-  "pagamentos": [],
+  "pagamentos": [
+    {
+      "valor": "231",
+      "finalidade": "uniforme",
+      "dia": "2023-02-13",
+      "id": 1
+    }
+  ],
   "enderecos": [],
   "treinos": [],
   "avaliacoes": []

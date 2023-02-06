@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useFetch } from "../hooks/useFetch"
 import { useNavigate, useParams } from "react-router-dom"
+import { useForm } from "react-hook-form"
 
 const Pagamento = () => {
 
@@ -11,6 +12,13 @@ const Pagamento = () => {
   const [finalidade, setFinalidade] = useState()
   const [dia, setDia] = useState()
   const navigate = useNavigate()
+  const { register, reset} = useForm()
+
+  useEffect(() => {
+    if(data){
+      reset(data)
+    }
+  }, [data, reset])
 
   const handleSubmit = async (e, method) => {
     e.preventDefault()
@@ -34,18 +42,18 @@ const Pagamento = () => {
       {loading && <p>Carregando...</p>}
       {!error && data && !loading &&
         <form onSubmit={(e) => handleSubmit(e, "PUT")}>
-          <button onClick={(e) => {handleSubmit(e, "DELETE")}}>Excluir pagamento</button>
+          <button onClick={(e) => handleSubmit(e, "DELETE")}>Excluir pagamento</button>
           <label>
             <p>Valor</p>
-            <input type="number" placeholder={data.valor} required onChange={(e) => setValor(e.target.value)} />
+            <input type="number" {...register("valor")} required onChange={(e) => setValor(e.target.value)} />
           </label>
           <label>
             <p>Finalidade</p>
-            <input type="text" placeholder={data.finalidade} onChange={(e) => setFinalidade(e.target.value)} />
+            <input type="text" {...register("finalidade")} onChange={(e) => setFinalidade(e.target.value)} />
           </label>
           <label>
             <p>Data do pagamento</p>
-            <input type="date" placeholder={data.dia} required onChange={(e) => setDia(e.target.value)} />
+            <input type="date" {...register("dia")} required onChange={(e) => setDia(e.target.value)} />
           </label>
           <input type="submit" />
         </form>

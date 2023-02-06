@@ -9,14 +9,14 @@ export const useFetch = (url) => {
     const [error, setError] = useState(null)
     const [itemId, setItemId] = useState(null)
 
-    const httpConfig = (data, method) => {
+    const httpConfig = (dataParam, method) => {
         if(method === "POST"){
             setConfig({
                 method,
                 headers: {
                     "Content-type": "application/json"
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(dataParam)
             })
             setMethod(method)
         }
@@ -28,18 +28,35 @@ export const useFetch = (url) => {
                 }
             })
             setMethod(method)
-            setItemId(data)
+            setItemId(dataParam)
         }
         if(method === "PUT"){
+            /*
+            let dataMod = {
+                valor: data.valor,
+                finalidade: data.finalidade,
+                dia: data.dia
+            }
+            if(dataParam.valor !== "" && dataParam.valor !== undefined && dataParam.valor != null){
+                dataMod.valor = dataParam.valor
+                setData(dataMod)
+            }
+            if(!dataParam.finalidade){
+                setData(dataMod)
+            }
+            if(!dataParam.dia){
+                setData(dataMod)
+            }
+            */
             setConfig({
                 method,
                 headers: {
                     "Content-type": "application/json"
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(dataParam)
             })
             setMethod(method)
-            setItemId(data)
+            setItemId(dataParam)
         }
     }
 
@@ -71,7 +88,6 @@ export const useFetch = (url) => {
             if(method === "POST"){
                 setLoading(true)
                 let fetchOptions = [url, config]
-
                 try {
                     const res = await fetch(...fetchOptions)
                     const json = await res.json()
