@@ -1,11 +1,26 @@
 import { NavLink, Link } from "react-router-dom"
-import { useFetch } from "../hooks/useFetch"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 const Pagamentos = () => {
 
   const url = "http://localhost:3000/pagamentos"
-  const {data, loading, error} = useFetch(url)
+  const [error, setError] = useState()
+  const [loading, setLoading] = useState()
+  const [data, setData] = useState()
   console.log(data)
+
+  useEffect(() => {
+    setLoading(true)
+    axios.get(url)
+      .then((resp) => {
+        setData(resp.data)
+        setLoading(false)
+      })
+      .catch((err) => {
+        setError(err)
+      })
+  }, [])
 
   return (
     <div>

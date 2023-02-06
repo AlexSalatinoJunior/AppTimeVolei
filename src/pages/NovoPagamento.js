@@ -1,12 +1,14 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useFetch } from "../hooks/useFetch"
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
 
 const NovoPagamento = () => {
 
   const url = "http://localhost:3000/pagamentos"
 
-  const {loading, error, httpConfig} = useFetch(url)
+  const [error, setError] = useState()
+  const [loading, setLoading] = useState()
   const [valor, setValor] = useState()
   const [finalidade, setFinalidade] = useState()
   const [dia, setDia] = useState()
@@ -19,7 +21,14 @@ const NovoPagamento = () => {
       finalidade,
       dia
     }
-    httpConfig(pagamento, "POST")
+    setLoading(true)
+    axios.post(url, pagamento)
+      .then(() => {
+        setLoading(false)
+      })
+      .catch((err) => {
+        setError(err)
+    })
     if(!error){
       navigate(-1)
     }
