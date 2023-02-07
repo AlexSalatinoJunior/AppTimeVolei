@@ -1,16 +1,21 @@
-import './App.css';
-import Header from './components/header';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './App.css'
+import Header from './components/header'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Informativos from './pages/Informativos'
-import Treinos from './pages/Treinos'
-import Desempenho from './pages/Desempenho'
-import Pagamentos from './pages/Pagamentos'
+import Treinos from './pages/treinos/Treinos'
+import Pagamentos from './pages/pagamentos/Pagamentos'
 import Perfil from './pages/Perfil'
 import Cadastro from './pages/Cadastro'
 import Login from './pages/Login'
-import NotFound from './pages/NotFound';
-import NovoPagamento from './pages/NovoPagamento'
-import Pagamento from './pages/Pagamento'
+import NotFound from './pages/NotFound'
+import NovoPagamento from './pages/pagamentos/NovoPagamento'
+import Pagamento from './pages/pagamentos/Pagamento'
+import NovoTreino from './pages/treinos/NovoTreino'
+import Treino from './pages/treinos/Treino'
+import AvaliacaoRapida from "./pages/avaliacoes/AvaliacaoRapida"
+import AvaliacaoCompleta from "./pages/avaliacoes/AvaliacaoCompleta"
+import Avaliacoes from './pages/avaliacoes/Avaliacoes'
+import Atletas from './pages/atletas/Atletas'
 
 function App() {
   return (
@@ -20,7 +25,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Informativos />} />
           <Route path="/treinos" element={<Treinos />} />
-          <Route path="/desempenho" element={<Desempenho />} />
+          <Route path="/treino/:id" element={<Treino />} />
+          <Route path="/novo-treino" element={<NovoTreino />} />
+          <Route path="/avaliacoes" element={<Avaliacoes />} />
+          <Route path="/atletas" element={<Atletas />} />
+          <Route path="/treino/:id/avaliacao-rapida" element={<AvaliacaoRapida />} />
+          <Route path="/avaliacoes/:id/avaliacao-completa/" element={<AvaliacaoCompleta />} />
           <Route path="/pagamentos" element={<Pagamentos />} />
           <Route path="/pagamentos/:id" element={<Pagamento />} />
           <Route path="/perfil" element={<Perfil />} />

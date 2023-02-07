@@ -8,18 +8,20 @@ const Pagamentos = () => {
   const [error, setError] = useState()
   const [loading, setLoading] = useState()
   const [data, setData] = useState()
-  console.log(data)
 
   useEffect(() => {
-    setLoading(true)
-    axios.get(url)
-      .then((resp) => {
-        setData(resp.data)
-        setLoading(false)
-      })
-      .catch((err) => {
-        setError(err)
-      })
+    const getPagamentos = async () => {
+      setLoading(true)
+      axios.get(url)
+        .then((resp) => {
+          setData(resp.data)
+          setLoading(false)
+        })
+        .catch((err) => {
+          setError(err)
+        })
+    }
+    getPagamentos()
   }, [])
 
   return (

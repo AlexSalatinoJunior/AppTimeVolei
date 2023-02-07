@@ -1,7 +1,8 @@
 import Avaliacao from "./Avaliacao"
 
 export default class Treino{
-    horario
+    horarioInicio
+    horarioTermino
     data
     local
     valor

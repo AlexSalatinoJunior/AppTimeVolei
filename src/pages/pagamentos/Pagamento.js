@@ -16,22 +16,25 @@ const Pagamento = () => {
   const { register, reset} = useForm()
 
   useEffect(() => {
-    setLoading(true)
-    axios.get(url)
-      .then((response) => {
-        console.log("Axios " + response.data)
-        reset(response.data)
-        setValor(response.data.valor)
-        setFinalidade(response.data.finalidade)
-        setDia(response.data.dia)
-      })
-      .catch((err) => {
-        console.log(err)
-        setError(err)
-      })
-      .finally(() => {
-        setLoading(false)
-      })
+    const getPagamento = async () => {
+      setLoading(true)
+      await axios.get(url)
+        .then((response) => {
+          console.log("Axios " + response.data)
+          reset(response.data)
+          setValor(response.data.valor)
+          setFinalidade(response.data.finalidade)
+          setDia(response.data.dia)
+        })
+        .catch((err) => {
+          console.log(err)
+          setError(err)
+        })
+        .finally(() => {
+          setLoading(false)
+        })
+    }
+    getPagamento()
   }, [reset, url])
 
   const handleSubmit = async (e) => {
@@ -43,15 +46,15 @@ const Pagamento = () => {
       id
     }
     console.log(pagamento)
-    axios.put(url, pagamento)
+    await axios.put(url, pagamento)
     if(!error){
       navigate(-1)
     }
   }
 
-  const handleDelete = (e) => {
+  const handleDelete = async (e) => {
     e.preventDefault()
-    axios.delete(url)
+    await axios.delete(url)
       .catch((err) => {
         console.log(err)
         setError(err)
