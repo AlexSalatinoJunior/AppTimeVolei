@@ -1,0 +1,31 @@
+.novoTreino {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    border-style: solid;
+    border-radius: 2em;
+    border-width: 3px;
+    border-color: goldenrod;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+label p {
+    margin-right: 5px;
+}
+
+button {
+    padding: 1em 1.5em;
+    color: goldenrod;
+    font-weight: bold;
+    font-size: 1em;
+}

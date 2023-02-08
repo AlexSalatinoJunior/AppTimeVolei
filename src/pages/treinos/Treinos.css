@@ -1,0 +1,40 @@
+ul {
+    list-style: none;
+}
+
+button {
+    background-color: black;
+    border-radius: 1em;
+    border-width: 0;
+    padding: 2em;
+}
+
+.link-novo-treino {
+    color: goldenrod;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+button:hover{
+    background-color: rgb(20, 20, 20);
+}
+
+.lista-treinos {
+    display: flex;
+    flex-direction: column;
+}
+
+.lista-treinos a {
+    text-decoration: none;
+    padding: 0 3em;
+    min-width: 10em;
+    background-color: black;
+    border-radius: 2em;
+    color: goldenrod;
+    margin-top: 20px;
+}
+
+.lista-treinos a:hover {
+    background-color: rgb(20, 20, 20);
+}

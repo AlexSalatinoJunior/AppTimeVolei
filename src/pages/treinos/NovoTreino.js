@@ -1,3 +1,4 @@
+import "./NovoTreino.css"
 import React from 'react'
 import { useState } from 'react'
 import axios from "axios"
@@ -38,39 +39,41 @@ const NovoTreino = () => {
     }
 
   return (
-    <div>
-        <h3>Criar novo treino</h3>
-        {error && <p>Ocorreu um erro</p>}
-        {loading && <p>Carregando...</p>}
-        {!loading && !error &&
-        <form onSubmit={handleSubmit}>
-            <label>
-                <p>Foco do treino</p>
-                <input type="text" onChange={(e) => setFoco(e.target.value)}></input>
-            </label>
-            <label>
-                <p>Data</p>
-                <input type="date" required onChange={(e) => setDate(e.target.value)}></input>
-            </label>
-            <label>
-                <p>Local</p>
-                <input type="text" required onChange={(e) => setLocal(e.target.value)}></input>
-            </label>
-            <label>
-                <p>Horário inicio</p>
-                <input type="time" required onChange={(e) => setHorarioInicio(e.target.value)}></input>
-            </label>
-            <label>
-                <p>Horário término</p>
-                <input type="time" required onChange={(e) => setHorarioTermino(e.target.value)}></input>
-            </label>
-            <label>
-                <p>Valor</p>
-                <input type="number" onChange={(e) => setValor(e.target.value)}></input>
-            </label>
-            <button type='submit'>Criar</button>
-        </form>
-        }
+    <div className='novoTreino'>
+        <div className='box'>
+            <h3>Criar novo treino</h3>
+            {error && <p>Ocorreu um erro</p>}
+            {loading && <p>Carregando...</p>}
+            {!loading && !error &&
+            <form onSubmit={handleSubmit}>
+                <label>
+                    <p>Foco do treino</p>
+                    <input type="text" onChange={(e) => setFoco(e.target.value)}></input>
+                </label>
+                <label>
+                    <p>Data</p>
+                    <input type="date" required onChange={(e) => setDate(e.target.value)}></input>
+                </label>
+                <label>
+                    <p>Local</p>
+                    <input type="text" required onChange={(e) => setLocal(e.target.value)}></input>
+                </label>
+                <label>
+                    <p>Horário inicio</p>
+                    <input type="time" required onChange={(e) => setHorarioInicio(e.target.value)}></input>
+                </label>
+                <label>
+                    <p>Horário término</p>
+                    <input type="time" required onChange={(e) => setHorarioTermino(e.target.value)}></input>
+                </label>
+                <label>
+                    <p>Valor</p>
+                    <input type="number" onChange={(e) => setValor(e.target.value)}></input>
+                </label>
+                <button type='submit'>Criar</button>
+            </form>
+            }
+        </div>
     </div>
   )
 }

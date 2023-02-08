@@ -4,12 +4,26 @@ import { NavLink } from 'react-router-dom'
 function Header() {
   return (
     <div className="header">
-          <NavLink to='/treinos'>Treinos</NavLink>
-          <NavLink to='/avaliacoes'>Avaliações</NavLink>
-          <NavLink to='/atletas'>Atletas</NavLink>
-          <NavLink to='/'>Informativos</NavLink>
-          <NavLink to='/pagamentos'>Pagamentos</NavLink>
-          <NavLink to='/perfil'>Perfil</NavLink>
+      <ul>
+        <li>
+          <NavLink activeclassname="active" to='/treinos'>Treinos</NavLink>
+        </li>
+        <li>
+          <NavLink activeclassname="active" to='/avaliacoes'>Avaliações</NavLink>
+        </li>
+        <li>
+          <NavLink activeclassname="active" to='/atletas'>Atletas</NavLink>
+        </li>
+        <li>
+         <NavLink activeclassname="active" to='/'>Informativos</NavLink>
+        </li>
+        <li>
+          <NavLink activeclassname="active" to='/pagamentos'>Pagamentos</NavLink>
+        </li>
+        <li>
+          <NavLink activeclassname="active" to='/perfil'>Perfil</NavLink>
+        </li>
+      </ul>
     </div>
   )
 }

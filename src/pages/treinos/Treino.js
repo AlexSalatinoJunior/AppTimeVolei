@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
+import './Treino.css'
 
 const Treino = () => {
 
@@ -11,6 +12,7 @@ const Treino = () => {
     const [treino, setTreino] = useState()
     const [loading, setLoading] = useState()
     const [error, setError] = useState()
+    const [data, setData] = useState()
 
     useEffect(() => {
         const getTreino = async () => {
@@ -19,6 +21,7 @@ const Treino = () => {
                 .then((resp) => {
                     setTreino(resp.data)
                     setLoading(false)
+                    setData(new Date(resp.data.date).toLocaleDateString())
                 })
                 .catch((err) => {
                     setError(err)
@@ -41,23 +44,47 @@ const Treino = () => {
     }
 
   return (
-    <div>
+    <div className='treino-container'>
         {loading && <p>Carregando...</p>}
         {error && <p>Ocorreu um erro</p>}
         {treino && !loading && !error &&
-        <div>
+        <div className='box-treino'>
             <button onClick={handleDelete}>Excluir treino</button>
-            <div>
-                <p>Treino de {treino.foco} do dia {treino.date}</p>
-                <p>Foco: {treino.foco}</p>
-                <p>Data: {treino.date}</p>
-                <p>Horario inicio: {treino.horarioInicio}</p>
-                <p>Horario término: {treino.horarioTermino}</p>
-                <p>Local: {treino.local}</p>
-                <p>Valor: {treino.valor}</p>
+            <div className='treino-info'>
+                <p>Treino de {treino.foco} do dia {data}</p>
+                <label>
+                    <p>Foco:</p>
+                    <p>{treino.foco}</p>
+                </label>
+                <label>
+                    <p>Data:</p>
+                    <p>{data}</p>
+                </label>
+                <label>
+                    <p>Horario inicio:</p>
+                    <p>{treino.horarioInicio}</p>
+                </label>
+                <label>
+                    <p>Horario término:</p>
+                    <p>{treino.horarioTermino}</p>
+                </label>
+                <label>
+                    <p>Local:</p>
+                    <p>{treino.local}</p>
+                </label>
+                <label>
+                    <p>Valor:</p>
+                    <p>{treino.valor}</p>
+                </label>
             </div>
-            <Link to={`/treino/${treino.id}/avaliacao-rapida`}>Avaliacao rápida</Link>
-            <Link to={`/avaliacoes/avaliacao-completa/${treino.id}`}>Avaliacao completa</Link>
+            <div className='botoes-avaliacao'>
+                <Link to={`/treino/${treino.id}/avaliacao-rapida`}>
+                    <button>Avaliacao<br></br>rápida</button>
+                </Link>
+                <Link to={`/avaliacoes/avaliacao-completa/${treino.id}`}>
+                    <button>Avaliacao<br></br>completa</button>
+                </Link>
+            </div>
         </div>
         }
     </div>

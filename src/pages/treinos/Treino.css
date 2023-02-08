@@ -1,0 +1,33 @@
+.treino-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-treino {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2em;
+    border-color: goldenrod;
+    border-style: solid;
+    padding: 1em;
+}
+
+button {
+    max-width: 10em;
+}
+
+.treino-info label {
+    display: flex;
+    justify-content: space-between;
+    align-items: normal;
+}
+
+.botoes-avaliacao a button{
+    margin: 5px;
+    padding: 1em
+}
