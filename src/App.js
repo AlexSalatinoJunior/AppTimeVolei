@@ -1,21 +1,21 @@
 import './App.css'
-import Header from './components/header'
+import Header from './components/header/header'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Informativos from './pages/Informativos'
-import Treinos from './pages/treinos/Treinos'
-import Pagamentos from './pages/pagamentos/Pagamentos'
-import Perfil from './pages/Perfil'
-import Cadastro from './pages/Cadastro'
-import Login from './pages/Login'
-import NotFound from './pages/NotFound'
-import NovoPagamento from './pages/pagamentos/NovoPagamento'
-import Pagamento from './pages/pagamentos/Pagamento'
-import NovoTreino from './pages/treinos/NovoTreino'
-import Treino from './pages/treinos/Treino'
-import AvaliacaoRapida from "./pages/avaliacoes/AvaliacaoRapida"
-import AvaliacaoCompleta from "./pages/avaliacoes/AvaliacaoCompleta"
-import Avaliacoes from './pages/avaliacoes/Avaliacoes'
-import Atletas from './pages/atletas/Atletas'
+import Informativos from './pages/informativos/Informativos'
+import Treinos from './pages/treinos/treinos/Treinos'
+import Pagamentos from './pages/pagamentos/pagamentos/Pagamentos'
+import Perfil from './pages/perfil/Perfil'
+import Cadastro from './pages/cadastro/Cadastro'
+import Login from './pages/login/Login'
+import NotFound from './pages/notFound/NotFound'
+import NovoPagamento from './pages/pagamentos/novoPagamento/NovoPagamento'
+import Pagamento from './pages/pagamentos/pagamento/Pagamento'
+import NovoTreino from './pages/treinos/novoTreino/NovoTreino'
+import Treino from './pages/treinos/treino/TreinoPage'
+import AvaliacaoRapida from "./pages/avaliacoes/avaliacaoRapida/AvaliacaoRapida"
+import AvaliacaoCompleta from "./pages/avaliacoes/avaliacaoCompleta/AvaliacaoCompleta"
+import Avaliacoes from './pages/avaliacoes/avaliacoes/Avaliacoes'
+import Atletas from './pages/atletas/atletas/Atletas'
 import React from 'react'
 
 function App() {
