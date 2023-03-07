@@ -2,16 +2,17 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import axios from "axios"
+import React from "react"
 
 const Pagamento = () => {
 
   const {id} = useParams()
   const url = "http://localhost:3000/pagamentos/" + id
-  const [loading, setLoading] = useState()
-  const [error, setError] = useState()
-  const [valor, setValor] = useState()
-  const [finalidade, setFinalidade] = useState()
-  const [dia, setDia] = useState()
+  const [loading, setLoading] = useState<boolean>()
+  const [error, setError] = useState<Error>()
+  const [valor, setValor] = useState<string>()
+  const [finalidade, setFinalidade] = useState<string>()
+  const [dia, setDia] = useState<string>()
   const navigate = useNavigate()
   const { register, reset} = useForm()
 
@@ -37,7 +38,7 @@ const Pagamento = () => {
     getPagamento()
   }, [reset, url])
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault()
     const pagamento = {
       valor,
@@ -52,7 +53,7 @@ const Pagamento = () => {
     }
   }
 
-  const handleDelete = async (e) => {
+  const handleDelete = async (e: any) => {
     e.preventDefault()
     await axios.delete(url)
       .catch((err) => {

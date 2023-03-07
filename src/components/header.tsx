@@ -1,3 +1,4 @@
+import React from 'react';
 import './header.css'
 import { NavLink } from 'react-router-dom'
 
@@ -6,7 +7,7 @@ function Header() {
     <div className="header">
       <ul>
         <li>
-          <NavLink activeclassname="active" to='/treinos'>Treinos</NavLink>
+          <NavLink activeClassname="active" to='/treinos'>Treinos</NavLink>
         </li>
         <li>
           <NavLink activeclassname="active" to='/avaliacoes'>Avaliações</NavLink>

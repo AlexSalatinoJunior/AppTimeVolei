@@ -8,14 +8,14 @@ const NovoTreino = () => {
 
     const navigate = useNavigate()
     const url = "http://localhost:3000/treinos/"
-    const [foco, setFoco] = useState()
-    const [date, setDate] = useState()
-    const [local, setLocal] = useState()
-    const [horarioInicio, setHorarioInicio] = useState()
-    const [horarioTermino, setHorarioTermino] = useState()
-    const [valor, setValor] = useState()
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState()
+    const [foco, setFoco] = useState<string>()
+    const [date, setDate] = useState<string>()
+    const [local, setLocal] = useState<string>()
+    const [horarioInicio, setHorarioInicio] = useState<string>()
+    const [horarioTermino, setHorarioTermino] = useState<string>()
+    const [valor, setValor] = useState<string>()
+    const [loading, setLoading] = useState<boolean>(false)
+    const [error, setError] = useState<string>()
 
     const handleSubmit = async () => {
         const treino = {

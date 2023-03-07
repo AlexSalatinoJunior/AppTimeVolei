@@ -1,13 +1,15 @@
 import { NavLink, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import React from "react"
+import Pagamento from "../../../models/Pagamento"
 
 const Pagamentos = () => {
 
   const url = "http://localhost:3000/pagamentos"
-  const [error, setError] = useState()
-  const [loading, setLoading] = useState()
-  const [data, setData] = useState()
+  const [error, setError] = useState<Error>()
+  const [loading, setLoading] = useState<boolean>()
+  const [data, setData] = useState<Pagamento[]>()
 
   useEffect(() => {
     const getPagamentos = async () => {
@@ -31,9 +33,9 @@ const Pagamentos = () => {
       <ul>
         {error && <p>{error.message}</p>}
         {loading && <p>Carregando</p>}
-        {data && !error && !loading && data.map((pagamento) => (
+        {data && !error && !loading && data.map((pagamento: Pagamento) => (
           <li key={pagamento.id} className="pagamento-item">
-            <p>{pagamento.dia}</p>
+            <p>{pagamento.data}</p>
             <p>{pagamento.finalidade}</p>
             <p>{pagamento.valor}</p>
             <Link to={`/pagamentos/${pagamento.id}`}>Editar pagamento</Link>

@@ -1,6 +1,6 @@
 export default class Avaliacao{
-    notaGeral
-    observacao
+    notaGeral: string
+    observacao: string
     saque = {
         erros: 0,
         razoavel: 0,

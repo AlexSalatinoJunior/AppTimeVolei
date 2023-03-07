@@ -1,19 +1,20 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
+import React from "react"
 
 const NovoPagamento = () => {
 
   const url = "http://localhost:3000/pagamentos"
 
-  const [error, setError] = useState()
-  const [loading, setLoading] = useState()
-  const [valor, setValor] = useState()
-  const [finalidade, setFinalidade] = useState()
-  const [dia, setDia] = useState()
+  const [error, setError] = useState<Error>()
+  const [loading, setLoading] = useState<boolean>()
+  const [valor, setValor] = useState<string>()
+  const [finalidade, setFinalidade] = useState<string>()
+  const [dia, setDia] = useState<string>()
   const navigate = useNavigate()
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault()
     const pagamento = {
       valor,

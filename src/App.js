@@ -16,6 +16,7 @@ import AvaliacaoRapida from "./pages/avaliacoes/AvaliacaoRapida"
 import AvaliacaoCompleta from "./pages/avaliacoes/AvaliacaoCompleta"
 import Avaliacoes from './pages/avaliacoes/Avaliacoes'
 import Atletas from './pages/atletas/Atletas'
+import React from 'react'
 
 function App() {
   return (

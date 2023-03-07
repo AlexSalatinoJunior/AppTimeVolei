@@ -2,17 +2,18 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import './Treino.css'
+import './TreinoPage.css'
+import Treino from '../../../models/Treino'
 
-const Treino = () => {
+const TreinoPage = () => {
 
     const navigate = useNavigate()
     const {id} = useParams()
     const url = "http://localhost:3000/treinos/"
-    const [treino, setTreino] = useState()
-    const [loading, setLoading] = useState()
-    const [error, setError] = useState()
-    const [data, setData] = useState()
+    const [treino, setTreino] = useState<Treino>()
+    const [loading, setLoading] = useState<boolean>()
+    const [error, setError] = useState<Error>()
+    const [data, setData] = useState<string>()
 
     useEffect(() => {
         const getTreino = async () => {
@@ -51,10 +52,10 @@ const Treino = () => {
         <div className='box-treino'>
             <button onClick={handleDelete}>Excluir treino</button>
             <div className='treino-info'>
-                <p>Treino de {treino.foco} do dia {data}</p>
+                <p>Treino de {treino.focoTreino} do dia {data}</p>
                 <label>
                     <p>Foco:</p>
-                    <p>{treino.foco}</p>
+                    <p>{treino.focoTreino}</p>
                 </label>
                 <label>
                     <p>Data:</p>
@@ -91,4 +92,4 @@ const Treino = () => {
   )
 }
 
-export default Treino
+export default TreinoPage
